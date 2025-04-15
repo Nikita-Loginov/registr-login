@@ -1,9 +1,13 @@
-import { useFormStore } from "../../store/form"
+import { useFormStore } from "../../store/form";
 
-export const Home = () => {
-    const {email} = useFormStore()
+interface HomeProps {
+    email? : string | null;
+}
 
+export const Home:React.FC<HomeProps> = ({email}) => {
+
+    
     return (
-        <p style={{fontSize: '40px'}}>Привет , {email}</p>
+        <p style={{fontSize: '40px'}}>Привет , {email || 'пользователь'}</p>
     )
 }

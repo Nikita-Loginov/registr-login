@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router";
 import { Button } from "../../controls/Button";
 
@@ -10,10 +8,15 @@ interface FormProps {
   password?: boolean;
   email?: boolean;
   action: "Login" | "Sign in";
-  actionfirebase : () => void;
+  actionfirebase: () => void;
 }
 
-export const Form: React.FC<FormProps> = ({ password, email, action, actionfirebase }) => {
+export const Form: React.FC<FormProps> = ({
+  password,
+  email,
+  action,
+  actionfirebase,
+}) => {
   const {
     password: passwordInput,
     email: emailInput,
@@ -24,7 +27,7 @@ export const Form: React.FC<FormProps> = ({ password, email, action, actionfireb
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    actionfirebase()
+    actionfirebase();
   };
 
   return (
@@ -72,18 +75,34 @@ export const Form: React.FC<FormProps> = ({ password, email, action, actionfireb
                 </div>
               </label>
 
-              <div className="form__box-details">
-                {/* <span className="form-error">Lorem, ipsum dolor.</span> */}
+              {/* <div className="form__box-details">
+                <span className="form-error">Lorem, ipsum dolor.</span>
 
                 <Link to="/" className="form__box-details-text">
                   Forgot Password?
-                </Link>
-              </div>
+                </Link> 
+              </div> */}
             </div>
           )}
         </div>
 
-        {action && <Button type="submit">{action}</Button>}
+        <div className="form__details">
+          {action && <Button type="submit">{action}</Button>}
+
+          <p>
+            {action === "Login" ? (
+              <>
+                Я уже зарегистрирован,
+                <Link to="/signIn">перейти к входу(кликабельно)</Link>
+              </>
+            ) : (
+              <>
+                У меня нет аккаунта,
+                <Link to="/login">перейти к регистрации(кликабельно)</Link>
+              </>
+            )}
+          </p>
+        </div>
       </div>
 
       {/* <div className="form__details"></div> */}

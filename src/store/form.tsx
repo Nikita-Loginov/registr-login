@@ -7,7 +7,7 @@ interface FormState {
   setEmail : (email : string) => void;
   setPassword : (password : string) => void;
   resetForm: () => void;
-  setIsAuthenticated: () => void;
+  setIsAuthenticated: (mean: boolean) => void;
 }
 
 export const useFormStore = create<FormState>((set) => ({
@@ -16,6 +16,6 @@ export const useFormStore = create<FormState>((set) => ({
   isAuthenticated : false,
   setEmail: (email) => set({ email }),
   setPassword: (password) => set({ password }),
-  setIsAuthenticated: () => set({isAuthenticated : true}),
+  setIsAuthenticated: (mean) => set({isAuthenticated : mean}),
   resetForm: () => set({ email: '', password: '' }),
 }));

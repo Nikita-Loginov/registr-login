@@ -1,3 +1,5 @@
+@import '../../../styles/vars.scss';
+
 .form {
   max-width: 690px;
   width: 100%;
@@ -14,7 +16,8 @@
   &__boxs,
   &__box,
   &__box-head,
-  &__box-details {
+  &__box-details,
+  &__details {
     display: flex;
     flex-direction: column;
   }
@@ -38,6 +41,15 @@
 
   &__box-head-text {
     font-size: 18px;
+  }
+
+  &__details {
+    gap: 10px;
+    font-size: 20px;
+
+    a {
+      color: #000;
+    }
   }
 
   &__box-details {
